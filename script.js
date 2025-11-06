@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
     const header = document.getElementById('header');
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
