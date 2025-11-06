@@ -790,7 +790,7 @@ section {
     left: 0;
     width: 100%;
     background: var(--light-bg);
-    padding: 4rem 3.5rem;
+    padding: 4rem 3.5rem 3rem 3.5rem;
     border-radius: 20px;
     box-shadow: var(--shadow-md);
     opacity: 0;
@@ -862,7 +862,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 8rem;
 }
 
 .testimonial-btn {
@@ -1305,10 +1305,11 @@ section {
     }
 
     .nav-menu {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 70px;
         left: 0;
-        width: 100%;
+        right: 0;
+        width: 100vw;
         max-height: 0;
         background: var(--white);
         flex-direction: column;
@@ -1319,6 +1320,7 @@ section {
         transition: max-height 0.4s ease, box-shadow 0.3s ease;
         gap: 0;
         z-index: 998;
+        margin: 0;
     }
 
     .nav-menu.active {
