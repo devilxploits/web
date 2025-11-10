@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const floatingBookBtn = document.getElementById('floatingBookBtn');
     const testimonialContainer = document.getElementById('testimonialContainer');
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const dots = document.querySelectorAll('.dot');
     const appointmentForm = document.getElementById('appointmentForm');
+    const scheduleMeetBtn = document.getElementById('scheduleMeetBtn');
 
     let currentSlide = 0;
     const totalSlides = testimonialCards.length;
@@ -19,10 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
-            scrollTopBtn.classList.add('show');
         } else {
             header.classList.remove('scrolled');
-            scrollTopBtn.classList.remove('show');
         }
 
         updateActiveNavLink();
@@ -83,12 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
 
     function showSlide(index) {
         if (index >= totalSlides) {
@@ -185,6 +178,29 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
+
+    if (scheduleMeetBtn) {
+        scheduleMeetBtn.addEventListener('click', function() {
+            const now = new Date();
+            const startDate = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
+            startDate.setHours(10, 0, 0, 0);
+            
+            const endDate = new Date(startDate.getTime() + (30 * 60 * 1000));
+            
+            const formatDate = (date) => {
+                return date.toISOString().replace(/-|:|\.\d\d\d/g, "");
+            };
+            
+            const eventTitle = encodeURIComponent("MedTrueCare Billing Consultation");
+            const eventDetails = encodeURIComponent("Discussion about medical billing services and how we can help your practice maximize revenue.");
+            const eventLocation = encodeURIComponent("Google Meet (will be added when you save)");
+            const dates = formatDate(startDate) + "/" + formatDate(endDate);
+            
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${dates}&details=${eventDetails}&location=${eventLocation}&sf=true`;
+            
+            window.open(calendarUrl, '_blank');
+        });
+    }
 
     showSlide(0);
 });
