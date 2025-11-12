@@ -1,0 +1,110 @@
+<div id="bookingModal" class="booking-modal">
+    <div class="booking-modal-content">
+        <button class="booking-modal-close" id="closeBookingModal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="booking-header">
+            <h2>Schedule Your Free Consultation</h2>
+            <p style="margin: 15px 0 20px; opacity: 0.95;">Choose your preferred date and time - we'll set up a Google Meet for you</p>
+            <div class="booking-contact-info">
+                <div class="booking-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@medtruecareservices.com">info@medtruecareservices.com</a>
+                </div>
+                <div class="booking-info-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+12344566677">+1 (234) 456-6677</a>
+                </div>
+                <div class="booking-info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 8AM - 5PM EST</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-body">
+            <h2>Select Your Appointment Time</h2>
+
+            <div class="booking-datetime-section">
+                <div class="date-selector">
+                    <div class="date-header">
+                        <button class="date-nav-btn" id="prevWeek">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 id="currentWeekDisplay">Thursday, November 13</h3>
+                        <button class="date-nav-btn" id="nextWeek">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="date-picker" id="datePicker">
+                    </div>
+                </div>
+
+                <div class="time-slots-section">
+                    <h4><i class="fas fa-sun"></i> Morning</h4>
+                    <div class="time-slots" id="morningSlots">
+                    </div>
+
+                    <h4><i class="fas fa-cloud-sun"></i> Afternoon</h4>
+                    <div class="time-slots" id="afternoonSlots">
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form-section" id="bookingFormSection" style="display: none;">
+                <h3>Complete Your Booking</h3>
+                <form id="finalBookingForm">
+                    <div class="form-group">
+                        <label for="bookingName">Full Name *</label>
+                        <input type="text" id="bookingName" required placeholder="Dr. John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingEmail">Email Address *</label>
+                        <input type="email" id="bookingEmail" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone Number *</label>
+                        <input type="tel" id="bookingPhone" required placeholder="+1 (234) 567-8900">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingNotes">Additional Notes (Optional)</label>
+                        <textarea id="bookingNotes" rows="4" placeholder="Tell us about your practice, billing challenges, or specific questions..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-confirm-booking">
+                        <i class="fas fa-calendar-check"></i>
+                        Confirm Appointment
+                    </button>
+                </form>
+            </div>
+
+            <div class="booking-summary" id="bookingSummary" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Appointment Confirmed!</h3>
+                <p class="confirmation-message">
+                    You're all set! We've sent a confirmation email with all the details and a calendar invitation.
+                </p>
+
+                <div class="summary-details">
+                    <p><strong>Date:</strong> <span id="summaryDate"></span></p>
+                    <p><strong>Time:</strong> <span id="summaryTime"></span></p>
+                    <p><strong>Duration:</strong> 45 minutes</p>
+                    <p><strong>Meeting Type:</strong> Google Meet</p>
+                </div>
+
+                <p class="confirmation-message">
+                    <i class="fas fa-video"></i> A Google Meet link will be emailed to you 24 hours before your appointment.
+                </p>
+
+                <p class="confirmation-message">
+                    <i class="fas fa-info-circle"></i> Need to reschedule? Contact us at <strong>info@medtruecareservices.com</strong> or <strong>+1 (234) 456-6677</strong>
+                </p>
+
+                <button id="closeAfterBooking" class="btn-confirm-booking">
+                    <i class="fas fa-check"></i>
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

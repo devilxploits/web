@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.medtruecareservices.com/sitemap.xml
+
+# Disallow admin and sensitive directories
+Disallow: /mailer/
+Disallow: /vendor/
+Disallow: /.env
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /*.db$
+
+# Crawl-delay for good behavior
+Crawl-delay: 1
