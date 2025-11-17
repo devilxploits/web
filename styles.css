@@ -1425,54 +1425,56 @@ section {
 
 .specialties-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
 }
 
 .specialty-card {
-    background: var(--light-bg);
-    padding: 2.5rem;
-    border-radius: 15px;
+    background: var(--white);
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
     text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 1px solid rgba(74, 159, 193, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .specialty-card:hover {
     background: var(--white);
     border-color: var(--secondary-color);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(74, 159, 193, 0.2);
 }
 
 .specialty-icon {
-    width: 90px;
-    height: 90px;
+    width: 45px;
+    height: 45px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 0.6rem;
     transition: var(--transition);
 }
 
 .specialty-card:hover .specialty-icon {
-    transform: scale(1.1);
+    transform: scale(1.08);
     background: var(--gradient-accent);
 }
 
 .specialty-icon i {
-    font-size: 2.2rem;
+    font-size: 1.1rem;
     color: var(--white);
 }
 
 .specialty-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 0.85rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-weight: 700;
+    margin-bottom: 0;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .specialty-card p {
@@ -2822,7 +2824,21 @@ section {
     }
 
     .specialties-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .specialty-card h3 {
+        font-size: 0.8rem;
+    }
+    
+    .specialty-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .specialty-icon i {
+        font-size: 1rem;
     }
 
     .about-content {
