@@ -40,20 +40,35 @@ function initializeNav() {
     }
 
     highlightActiveLink();
+    
+    window.addEventListener('hashchange', highlightActiveLink);
 }
 
 function highlightActiveLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentHash = window.location.hash;
     const navLinks = document.querySelectorAll('.nav-link');
+    
+    console.log('Current Page:', currentPage, 'Current Hash:', currentHash);
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        const linkPage = link.getAttribute('href').split('#')[0];
+        const href = link.getAttribute('href');
+        const linkPage = href.split('#')[0];
+        const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
         
-        if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === 'index.html' && linkPage === 'index.html#home')) {
+        let shouldHighlight = false;
+        
+        if (linkHash) {
+            shouldHighlight = (linkPage === currentPage && linkHash === currentHash);
+        } else {
+            shouldHighlight = (linkPage === currentPage && !currentHash) || 
+                            (currentPage === '' && linkPage === 'index.html');
+        }
+        
+        if (shouldHighlight) {
             link.classList.add('active');
+            console.log('Highlighting:', href);
         }
     });
 }
